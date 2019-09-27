@@ -4,7 +4,7 @@ const should=chai.should();
 const server=require('../../app');
 
 chai.use(chaiHttp);
-let token;
+let token,movieId;
 
 describe('api/movies tests',()=>{
     // burda before ile  test kullnıcı bilgleri ile authentication için token bilgileri alınır
@@ -32,7 +32,7 @@ describe('GET/ movies',()=>{
             });
     });
 });
-describe('/Posr movie',()=>{
+describe('/Post movie',()=>{
     it('it should be post a movie',  (done)=> {
         const movie={
            title:'udemy',
@@ -56,12 +56,29 @@ describe('/Posr movie',()=>{
             res.body.should.have.property('country');
             res.body.should.have.property('year');
             res.body.should.have.property('imdb_score');
-
+            movieId=res.body._id;
             done();
         });
     });
 
 });
-
+describe('/GET/director_id movie',()=>{
+    it('it should GET a movie by the given id ',  (done)=> {
+        chai.request(server)
+        .get('/api/movies/'+movieId)
+            .set('x-access-token',token)
+            .end((err,res)=>{
+                res.should.have.status(200);
+                res.body.should.be.a('object');
+                res.body.should.have.property('title');
+                res.body.should.have.property('director_id');
+                res.body.should.have.property('category');
+                res.body.should.have.property('country');
+                res.body.should.have.property('year');
+                res.body.should.have.property('_id').eql(movieId);
+                done();
+            });
+    });
+});
 });
 
