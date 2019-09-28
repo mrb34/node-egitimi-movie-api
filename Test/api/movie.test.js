@@ -79,8 +79,8 @@ describe('/GET/movie_id movie',()=>{
                 done();
             });
     });
-    ;});
-describe('/PUT/director_Id movie',()=>{
+    });
+describe('/PUT/movie_Id movie',()=>{
         it('it should UPDATE a movie given by id',  (done)=> {
             const movie={
                 title:'86creative',
@@ -110,6 +110,7 @@ describe('/PUT/director_Id movie',()=>{
         });
 
     });
+
 describe('DELETE/movie_id movie',()=>{
     it('should be DELETE a movie given by id',  (done)=> {
 
@@ -124,6 +125,6 @@ describe('DELETE/movie_id movie',()=>{
             });
 
     });
-})
+});
 });
 

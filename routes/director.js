@@ -146,8 +146,8 @@ router.delete('/:director_id',(req,res,next)=>{
     if (!director){
       next({message:'The director was not found',code:4});
     }else {
-      res.json(director);
-      // res.json({status:1});
+      //res.json(director);
+      res.json({status:1});
     };
   }).catch((err)=>{
     res.json(err);
