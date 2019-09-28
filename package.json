@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "start:dev": "nodemon ./bin/www",
-    "test": "mocha --exit --recursive" ,
+    "test": "mocha --exit --recursive",
     "_comment": "yukarıdaki test ile cmd ekranında test programı çalıştırılır. exit ile testten sonra devam etme demekdir. recurrsive ise test js dosyası  test kalsörünün altında başka bir kalsorde ise yazılır"
   },
   "dependencies": {
